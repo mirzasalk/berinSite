@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 
 <html>
-<head>
+  <head>
     <title>FlexFuels Startseite</title>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
+  </head>
 
-<body class="Hintergrund">
-
+  <body class="Hintergrund">
     <nav>
-        <label class="logo">FlexFuels</label>
-        <ul>
-            <li><a class="active"href="#">Startseite</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="rezepte.html">Rezepte</a></li>
-            <li><a href="#">Übungen</a></li>
-            
-        </ul>
+      <label class="logo">FlexFuels</label>
+      <ul>
+        <li><a class="active" href="#">Startseite</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="rezepte.html">Rezepte</a></li>
+        <li><a href="#">Übungen</a></li>
+      </ul>
     </nav>
 
-<div>
-     <h2><a href="news.html" class="link">NEWS</a></h2>
-</div>
+    <div>
+      <h2><a href="news.html" class="link">NEWS</a></h2>
+    </div>
 
-<!--Bilder Slideshow mithilfe eines Videos erstellt-->
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="Arni.jpg" style="width: 100%" />
+      </div>
 
-<div id="slider">
-    <figure>
-        <img src="Schritte1700x900.png" alt="">
-        <img src="Arni1700x900.png" alt="">
-        <img src="Arni1700x900.png" alt="">
-        <img src="Arni1700x900.png">
-        <img src="schritte.png" alt="">
-    </figure>
-</div>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="Schritte.jpg" style="width: 100%" />
+      </div>
 
-</body>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="Schritte2.jpg" style="width: 100%" />
+      </div>
 
-
-
+      <p class="prev" onclick="minusSlides()">&#10094;</p>
+      <p class="next" onclick="plusSlides()">&#10095;</p>
+    </div>
+    <br />
+    <script>
+      let slideIndex = 0;
+      let i;
+      showSlides();
+      function plusSlides(n) {
+        clearInterval(i);
+        showSlides();
+      }
+      function minusSlides(n) {
+        slideIndex = slideIndex - 2;
+        clearInterval(i);
+        showSlides();
+      }
+      function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        console.log(slideIndex);
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        if (slideIndex < 1) {
+          slideIndex = 3;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        i = setTimeout(showSlides, 15000); // ovde menjas vreme 1000 ti  je 1 sekunda,onoliko koliko hoces sekundi toliko ubacis hiljada
+      }
+    </script>
+  </body>
 </html>
-
